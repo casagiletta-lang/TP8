@@ -73,16 +73,16 @@ button {
     color: white;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    
     font-size: 15px;
 }
 
 .boton-borrar {
-    background: crimson;
+    background: rgb(243, 5, 52);
 }
 
 .volver {
-    display: inline-block;
+    display: block;
     margin-bottom: 12px;
     color: dodgerblue;
     text-decoration: none;
@@ -103,7 +103,7 @@ button {
 
 .ficha input, .ficha select {
     width: 110px;
-    display: inline-block;
+    display: block;
 }
 
 .ficha button {
