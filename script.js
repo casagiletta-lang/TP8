@@ -94,7 +94,7 @@ function mostrarAlumnos(){
             "<h3>Edad: " + alumno.edad + "</h3>" +
             "<h3>Curso: " + alumno.curso + "</h3>" +
             "<h3>Notas: " + (alumno.notas.length ? alumno.notas.join(", ") : "Sin notas") + "</h3>" +
-            "<h3>Promedio: " + promedio.toFixed(2) + "</h3>" +
+            "<h3>Promedio: " + promedio + "</h3>" +
             "<h3>Condicion: " + estado + "</h3>" +
             "<label>Nueva nota:</label>" +
             "<input type='number' id='nota" + i + "'>" +
@@ -106,7 +106,7 @@ function mostrarAlumnos(){
 
 function guardarNota(posicion){
     let alumnos = obtenerDatos("lista_db");
-    let nota = parseFloat(document.getElementById("nota" + posicion).value);
+    let nota = (document.getElementById("nota" + posicion).value);
 
     if(nota >= 1 && nota <= 10){
         alumnos[posicion].notas.push(nota);
@@ -120,7 +120,6 @@ function guardarNota(posicion){
 
 function borrarEstudiante(posicion){
     let alumnos = obtenerDatos("lista_db");
-    alumnos.splice(posicion, 1);
     guardarDatos("lista_db", alumnos);
     alert("Estudiante borrado");
     if(cajaAlumnos) mostrarAlumnos();
@@ -170,7 +169,6 @@ function mostrarProfesores(){
 
     for(let i = 0; i < profesores.length; i++){
         let profesor = profesores[i];
-        let cursosTexto = profesor.cursos.length > 0 ? profesor.cursos.join(", ") : "Sin asignar";
 
         cajaProfesores.innerHTML += "<div class='ficha'>" +
             "<h2>Docente: " + profesor.nombre + "</h2>" +
@@ -194,21 +192,11 @@ function mostrarProfesores(){
 
 function asignarCurso(posicion){
     let profesores = obtenerDatos("lista_docentes");
-    let cursoElegido = document.getElementById("sel-curso-" + posicion).value;
 
-    if(!profesores[posicion].cursos.includes(cursoElegido)){
-        profesores[posicion].cursos.push(cursoElegido);
-        guardarDatos("lista_docentes", profesores);
-        alert("Curso asignado");
-        mostrarProfesores();
-    } else {
-        alert("El docente ya tiene asignado ese curso");
-    }
-}
+ 
 
 function borrarDocente(posicion){
     let profesores = obtenerDatos("lista_docentes");
-    profesores.splice(posicion, 1);
     guardarDatos("lista_docentes", profesores);
     alert("Docente borrado");
     if(cajaProfesores) mostrarProfesores();
