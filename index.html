@@ -34,18 +34,18 @@
 
     <script>
         function mostrar_submenu(opcion) {
-            document.getElementById("panel-inicial").classList.add("oculta");
+            document.getElementById("panel-inicial");
             if (opcion == "crear") {
-                document.getElementById("sub-crear").classList.remove("oculta");
+                document.getElementById("sub-crear");
             } else {
-                document.getElementById("sub-ver").classList.remove("oculta");
+                document.getElementById("sub-ver");
             }
         }
 
         function volver_inicio() {
-            document.getElementById("sub-crear").classList.add("oculta");
-            document.getElementById("sub-ver").classList.add("oculta");
-            document.getElementById("panel-inicial").classList.remove("oculta");
+            document.getElementById("sub-crear");
+            document.getElementById("sub-ver");
+            document.getElementById("panel-inicial");
         }
     </script>
 </body>
